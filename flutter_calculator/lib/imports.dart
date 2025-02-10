@@ -41,44 +41,41 @@ class CalculatorButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final calculatorProvider =
-        Provider.of<CalculatorProvider>(context, listen: false);
-    final TextStyle? textStyle = Theme.of(context).textTheme.titleLarge;
-    final mediaQuery = MediaQuery.of(context).size;
-    return Material(
-      color: backgroundColor,
-      child: InkWell(
-        borderRadius: BorderRadius.circular(20.0),
-        onTap: () {
-          calculatorProvider.addToEquation(
-            label,
-            canBeFirst,
-            context,
-          );
-        },
-        child: Center(
-          child: isEqualSign
-              ? Container(
-                  height: mediaQuery.width * 0.1,
-                  width: mediaQuery.width * 0.1,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: orangeColor,
-                  ),
-                  child: Center(
-                    child: Text(
-                      label,
-                      style: textStyle?.copyWith(color: backgroundColor),
-                    ),
-                  ),
-                )
-              : Text(
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final buttonSize = constraints.maxWidth * 0.88; // Reduced size slightly
+        return Material(
+          color: backgroundColor,
+          child: InkWell(
+            customBorder: const CircleBorder(),
+            onTap: () => Provider.of<CalculatorProvider>(context, listen: false)
+                .addToEquation(label, canBeFirst, context),
+            child: Container(
+              width: buttonSize,
+              height: buttonSize,
+              decoration: isEqualSign
+                  ? BoxDecoration(
+                      borderRadius: BorderRadius.circular(buttonSize * 0.4),
+                      color: orangeColor,
+                    )
+                  : null,
+              child: Center(
+                child: Text(
                   label,
-                  style: textStyle?.copyWith(
-                      color: isColored ? orangeColor : buttonsBackgroundColor),
+                  style: TextStyle(
+                    fontSize: buttonSize * 0.35, // Slightly smaller font
+                    color: isColored
+                        ? orangeColor
+                        : isEqualSign
+                            ? backgroundColor
+                            : buttonsBackgroundColor,
+                  ),
                 ),
-        ),
-      ),
+              ),
+            ),
+          ),
+        );
+      },
     );
   }
 }

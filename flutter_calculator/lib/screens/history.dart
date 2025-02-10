@@ -31,7 +31,7 @@ class History extends StatelessWidget {
                 style: Theme.of(context)
                     .textTheme
                     .bodySmall
-                    ?.copyWith(fontSize: 12.0),
+                    ?.copyWith(fontSize: 18.0),
               ),
             )
           : ListView.separated(
@@ -41,18 +41,20 @@ class History extends StatelessWidget {
                   const SizedBox(height: 10),
               itemBuilder: (BuildContext context, int i) {
                 return ListTile(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.0),
+                  contentPadding: EdgeInsets.symmetric(
+                    horizontal: MediaQuery.of(context).size.width * 0.05,
+                    vertical: 12,
                   ),
-                  tileColor: backgroundColor,
                   title: Text(
                     result[i].title,
-                    style: Theme.of(context)
-                        .textTheme
-                        .displaySmall!
-                        .copyWith(fontSize: 26.0),
+                    style: TextStyle(
+                        fontSize: MediaQuery.of(context).size.width * 0.06),
                   ),
-                  subtitle: Text(result[i].subtitle),
+                  subtitle: Text(
+                    result[i].subtitle,
+                    style: TextStyle(
+                        fontSize: MediaQuery.of(context).size.width * 0.04),
+                  ),
                 );
               },
             ),

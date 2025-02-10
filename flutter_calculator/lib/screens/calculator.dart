@@ -22,7 +22,7 @@ class Calculator extends StatelessWidget {
         children: [
           Container(
             width: mediaQuery.width,
-            height: mediaQuery.height * .3,
+            height: mediaQuery.height * .4,
             padding: EdgeInsets.symmetric(
               vertical: mediaQuery.width * 0.08,
               horizontal: mediaQuery.width * 0.06,
