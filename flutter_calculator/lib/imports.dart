@@ -43,7 +43,7 @@ class CalculatorButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        final buttonSize = constraints.maxWidth * 0.88; // Reduced size slightly
+        final buttonSize = constraints.maxWidth * 0.88;
         return Material(
           color: backgroundColor,
           child: InkWell(
@@ -54,8 +54,8 @@ class CalculatorButton extends StatelessWidget {
               width: buttonSize,
               height: buttonSize,
               decoration: isEqualSign
-                  ? BoxDecoration(
-                      borderRadius: BorderRadius.circular(buttonSize * 0.4),
+                  ? const BoxDecoration(
+                      shape: BoxShape.circle,
                       color: orangeColor,
                     )
                   : null,
@@ -63,7 +63,7 @@ class CalculatorButton extends StatelessWidget {
                 child: Text(
                   label,
                   style: TextStyle(
-                    fontSize: buttonSize * 0.35, // Slightly smaller font
+                    fontSize: buttonSize * 0.35,
                     color: isColored
                         ? orangeColor
                         : isEqualSign

@@ -62,7 +62,7 @@ class Calculator extends StatelessWidget {
               color: backgroundColor,
               child: GridView.count(
                 physics: const NeverScrollableScrollPhysics(),
-                padding: const EdgeInsets.all(15.0),
+                padding: const EdgeInsets.only(left: 10, right: 10, top: 10),
                 crossAxisSpacing: 5.0,
                 childAspectRatio: 1.3,
                 mainAxisSpacing: 5.0,
