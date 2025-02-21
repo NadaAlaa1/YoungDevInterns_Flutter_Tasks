@@ -48,5 +48,5 @@ Feel free to fork this repository, open issues, or suggest improvements. Contrib
 This project is licensed under the [MIT License](LICENSE).
 
 ---
-**Maintainer:** [Nada Alaa](https://github.com/NadaAlaa1)
+**Maintainer:** [Nada Selim](https://github.com/NadaAlaa1)
 
